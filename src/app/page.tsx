@@ -70,7 +70,7 @@ export default function LandingPage() {
               <p className="text-slate-400 max-w-2xl mx-auto">No more juggling between five different apps. FreelanceOS gives you all the tools to manage your clients and projects perfectly.</p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="bg-slate-900/50 border border-slate-800 p-6 rounded-xl hover:border-indigo-500/50 transition-colors">
                 <div className="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-lg flex items-center justify-center mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
@@ -105,7 +105,7 @@ export default function LandingPage() {
               <p className="text-slate-400 max-w-2xl mx-auto">Start for free, upgrade when you need more power.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
               <div className="bg-slate-900/30 border border-slate-800 p-8 rounded-2xl flex flex-col">
                 <h3 className="text-xl font-bold mb-2">Starter</h3>
                 <div className="text-4xl font-extrabold mb-6">$0<span className="text-lg text-slate-500 font-normal">/mo</span></div>

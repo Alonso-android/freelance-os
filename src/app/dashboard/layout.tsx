@@ -1,6 +1,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { Sidebar } from '@/components/Sidebar';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 export default async function DashboardLayout({
   children,
@@ -21,11 +22,29 @@ export default async function DashboardLayout({
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50 flex">
-      <Sidebar userInitials={initials} userFullName={fullName} userEmail={user.email || ''} />
+      <Sidebar userInitials={initials} userFullName={fullName} userEmail={user.email || ''} className="hidden md:flex" />
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col min-h-screen overflow-hidden">
-        <header className="h-16 flex items-center justify-between px-8 border-b border-slate-800 bg-slate-900/20 backdrop-blur-md">
+        {/* Mobile Header */}
+        <header className="md:hidden h-16 flex items-center justify-between px-4 border-b border-slate-800 bg-slate-900/20 backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            <Sheet>
+              <SheetTrigger asChild>
+                <button className="text-slate-400 hover:text-slate-50 p-2 outline-none">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+              </SheetTrigger>
+              <SheetContent side="left" className="p-0 bg-slate-950 border-slate-800 w-64 pt-10">
+                <Sidebar userInitials={initials} userFullName={fullName} userEmail={user.email || ''} className="flex h-full border-none w-full" />
+              </SheetContent>
+            </Sheet>
+            <span className="font-bold tracking-tight text-white">FreelanceOS</span>
+          </div>
+          <div className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-sm font-medium border border-slate-700">{initials}</div>
+        </header>
+
+        <header className="hidden md:flex h-16 items-center justify-between px-8 border-b border-slate-800 bg-slate-900/20 backdrop-blur-md">
           <h2 className="text-lg font-semibold">Overview</h2>
           <div className="flex items-center gap-4">
             <button className="text-slate-400 hover:text-slate-50 transition-colors relative outline-none flex">

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
-export function Sidebar({ userInitials, userFullName, userEmail }: { userInitials: string, userFullName: string, userEmail: string }) {
+export function Sidebar({ userInitials, userFullName, userEmail, className }: { userInitials: string, userFullName: string, userEmail: string, className?: string }) {
   const pathname = usePathname() || '';
   const router = useRouter();
   const isDemo = pathname.startsWith('/demo');
@@ -17,7 +17,7 @@ export function Sidebar({ userInitials, userFullName, userEmail }: { userInitial
   };
 
   return (
-    <aside className="w-64 border-r border-slate-800 bg-slate-900/50 hidden md:flex flex-col">
+    <aside className={`w-64 border-r border-slate-800 bg-slate-900/50 flex flex-col ${className ?? 'hidden md:flex'}`}>
       <div className="h-16 flex items-center px-6 border-b border-slate-800">
         <Link href="/" className="flex items-center gap-2">
           <div className="w-8 h-8 bg-indigo-500 rounded-lg flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(99,102,241,0.5)]">
